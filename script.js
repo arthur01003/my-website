@@ -8,24 +8,24 @@ function showOptions(service) {
     if (service === 'wrap') {
         shopTitle.textContent = "Choose Your Wrap Options";
         options = [
-            { name: "Gloss Black", image: "images/gloss_black.jpg", price: "$500" },
-            { name: "Matte Red", image: "images/matte_red.jpg", price: "$600" },
-            { name: "Custom Design", image: "images/custom.jpg", price: "Contact for Pricing" },
+            { name: "Gloss Black", image: "https://via.placeholder.com/200x150?text=Gloss+Black", price: "$500" },
+            { name: "Matte Red", image: "https://via.placeholder.com/200x150?text=Matte+Red", price: "$600" },
+            { name: "Custom Design", image: "https://via.placeholder.com/200x150?text=Custom+Design", price: "Contact for Pricing" },
         ];
     } else if (service === 'dechroming') {
         shopTitle.textContent = "Dechroming Options";
         options = [
-            { name: "Chrome Delete", image: "images/chrome_delete.jpg", price: "$300" },
+            { name: "Chrome Delete", image: "https://via.placeholder.com/200x150?text=Chrome+Delete", price: "$300" },
         ];
     } else if (service === 'detailing') {
         shopTitle.textContent = "Exterior Detailing Options";
         options = [
-            { name: "Full Detail", image: "images/full_detail.jpg", price: "$200" },
+            { name: "Full Detail", image: "https://via.placeholder.com/200x150?text=Full+Detail", price: "$200" },
         ];
     } else if (service === 'tinting') {
         shopTitle.textContent = "Window Tinting Options";
         options = [
-            { name: "Ceramic Tint", image: "images/ceramic_tint.jpg", price: "$150" },
+            { name: "Ceramic Tint", image: "https://via.placeholder.com/200x150?text=Ceramic+Tint", price: "$250" },
         ];
     }
 
@@ -36,10 +36,10 @@ function showOptions(service) {
             <p>${option.price}</p>
         </div>
     `).join('');
-    
     shopSection.style.display = 'block';
 }
 
-// Function to go back to the main page
+// Function to go back to the services section
 function goBack() {
-   
+    document.getElementById('shop-options').style.display = 'none';
+}
