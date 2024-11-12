@@ -63,3 +63,8 @@ section {
     background-color: #333;
     border-radius: 5px;
 }
+.wrap-item img, .gallery-images img {
+    width: 100%;
+    border-radius: 5px;
+}
+
