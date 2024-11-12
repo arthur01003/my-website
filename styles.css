@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #1a1a1a;
     color: #fff;
     margin: 0;
@@ -21,6 +21,7 @@ header nav a {
     color: #c0c0c0;
     margin: 0 15px;
     text-decoration: none;
+    font-weight: bold;
 }
 
 /* Hero Slider */
@@ -52,19 +53,52 @@ section {
     padding: 40px;
     text-align: center;
 }
-.service-list, .wrap-options, .gallery-images {
+
+/* Services */
+.service-list {
     display: flex;
     gap: 20px;
     justify-content: center;
 }
-.service, .wrap-item {
+.service {
+    width: 200px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.service:hover {
+    transform: scale(1.1);
+}
+
+/* Shop Options */
+.wrap-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.wrap-item {
     width: 200px;
     padding: 10px;
     background-color: #333;
     border-radius: 5px;
+    text-align: center;
 }
-.wrap-item img, .gallery-images img {
+.wrap-item img {
     width: 100%;
+    height: auto;
     border-radius: 5px;
 }
 
+/* Buttons */
+button {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #666;
+}
