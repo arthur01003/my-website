@@ -99,6 +99,16 @@ header nav a {
     height: auto;
     border-radius: 5px;
 }
+button {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #666;
+}
 
 /* Animations */
 @keyframes fadeIn {
@@ -110,13 +120,37 @@ header nav a {
     }
 }
 
-button {
+/* Tinting Options */
+#tint-options {
+    display: none;
+}
+.tint-option {
+    width: 150px;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    text-align: center;
+}
+.tint-option img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Sorting */
+.sort-buttons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.sort-buttons button {
     background-color: #444;
     color: #fff;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
 }
-button:hover {
+.sort-buttons button:hover {
     background-color: #666;
 }
