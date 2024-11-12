@@ -3,100 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chromowrap | Premium Car Wrapping & Detailing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <title>Car Wrapping Options</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <h1>Chromowrap</h1>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#shop" id="shopButton">Shop</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#faqs">FAQs</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <h1>Car Wrapping Options</h1>
+        <div class="sort-options">
+            <label for="sort">Sort by: </label>
+            <select id="sort" onchange="sortOptions()">
+                <option value="popular">Popular</option>
+                <option value="price-asc">Price (Low to High)</option>
+                <option value="price-desc">Price (High to Low)</option>
+            </select>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-slider">
-        <div class="slide active" style="background-image: url('https://via.placeholder.com/1200x500?text=Car+Wrap+1');"></div>
-        <div class="slide" style="background-image: url('https://via.placeholder.com/1200x500?text=Car+Wrap+2');"></div>
-        <div class="slide" style="background-image: url('https://via.placeholder.com/1200x500?text=Car+Wrap+3');"></div>
-        <div class="slider-controls">
-            <span class="prev">&#10094;</span>
-            <span class="next">&#10095;</span>
+    <div id="car-wrap-options" class="options-list">
+        <!-- Car Wrapping Options -->
+        <div class="option">
+            <img src="images/gloss-red.jpg" alt="Gloss Red Wrap" />
+            <h3>Gloss Red Wrap</h3>
+            <p>$2,500</p>
         </div>
-    </section>
+        <div class="option">
+            <img src="images/matte-black.jpg" alt="Matte Black Wrap" />
+            <h3>Matte Black Wrap</h3>
+            <p>$3,000</p>
+        </div>
+        <div class="option">
+            <img src="images/satin-blue.jpg" alt="Satin Blue Wrap" />
+            <h3>Satin Blue Wrap</h3>
+            <p>$2,700</p>
+        </div>
+    </div>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="service-list">
-            <div class="service" onclick="showOptions('wrap')">
-                <h3>Car Wrapping</h3>
-                <p>High-quality vinyl wraps in various colors and finishes.</p>
-            </div>
-            <div class="service" onclick="showOptions('tinting')">
-                <h3>Window Tinting</h3>
-                <p>Top-grade window tints to protect and enhance privacy.</p>
-            </div>
-        </div>
-    </section>
+    <script>
+        function sortOptions() {
+            const sortValue = document.getElementById("sort").value;
+            let options = document.querySelectorAll(".option");
+            options = Array.from(options);
 
-    <!-- Dynamic Shop Options Section (Hidden Initially) -->
-    <section id="shop-options" style="display: none;">
-        <h2 id="shop-title"></h2>
-        <div id="shop-items" class="wrap-options">
-            <!-- Dynamically loaded options will go here -->
-        </div>
-        <button onclick="goBack()">Go Back</button>
-    </section>
-
-    <section id="tint-options" style="display: none;">
-        <h2>Select Your Window Tint</h2>
-        <div class="tint-option">
-            <img src="https://via.placeholder.com/150x100?text=20%+Tint" alt="20% Tint">
-            <p>20% Tint</p>
-        </div>
-        <div class="tint-option">
-            <img src="https://via.placeholder.com/150x100?text=35%+Tint" alt="35% Tint">
-            <p>35% Tint</p>
-        </div>
-        <div class="tint-option">
-            <img src="https://via.placeholder.com/150x100?text=50%+Tint" alt="50% Tint">
-            <p>50% Tint</p>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery-images">
-            <img src="https://via.placeholder.com/500x300?text=Gallery+Image+1" alt="Completed Wrap 1">
-            <img src="https://via.placeholder.com/500x300?text=Gallery+Image+2" alt="Completed Wrap 2">
-        </div>
-    </section>
-
-    <!-- FAQs Section -->
-    <section id="faqs">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <h4>How long does a wrap last?</h4>
-            <p>Our wraps typically last 5-7 years with proper care.</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Phone: (999) 999-9999</p>
-        <p>Email: info@chromowrap.com</p>
-        <p>Address: XXX Main St, Anytown, USA</p>
-    </section>
-
-    <script src="script.js"></script>
+            if (sortValue === "price-asc") {
+                options.sort((a, b) => {
+                    return parseInt(a.querySelector("p").textContent.replace("$", "")) -
+                        parseInt(b.querySelector("p").textContent.replace("$", ""));
+                });
+            } else if (sortValue === "price-desc") {
+                options.sort((a, b) => {
+                    return parseInt(b.querySelector("p").textContent.replace("$", "")) -
+                        parseInt(a.querySelector("p").textContent.replace("$", ""));
+                });
+            }
+            // Re-append the sorted options
+            const optionsList = document.getElementById("car-wrap-options");
+            optionsList.innerHTML = "";
+            options.forEach(option => optionsList.appendChild(option));
+        }
+    </script>
 </body>
 </html>
