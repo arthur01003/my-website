@@ -13,7 +13,7 @@
         <h1>Chromowrap</h1>
         <nav>
             <a href="#services">Services</a>
-            <a href="#shop">Shop</a>
+            <a href="#shop" id="shopButton">Shop</a>
             <a href="#gallery">Gallery</a>
             <a href="#faqs">FAQs</a>
             <a href="#contact">Contact</a>
@@ -39,14 +39,6 @@
                 <h3>Car Wrapping</h3>
                 <p>High-quality vinyl wraps in various colors and finishes.</p>
             </div>
-            <div class="service" onclick="showOptions('dechroming')">
-                <h3>Dechroming</h3>
-                <p>Transform and enhance vehicle appearance by removing chrome.</p>
-            </div>
-            <div class="service" onclick="showOptions('detailing')">
-                <h3>Exterior Detailing</h3>
-                <p>Bring out the shine with our premium detailing services.</p>
-            </div>
             <div class="service" onclick="showOptions('tinting')">
                 <h3>Window Tinting</h3>
                 <p>Top-grade window tints to protect and enhance privacy.</p>
@@ -61,6 +53,22 @@
             <!-- Dynamically loaded options will go here -->
         </div>
         <button onclick="goBack()">Go Back</button>
+    </section>
+
+    <section id="tint-options" style="display: none;">
+        <h2>Select Your Window Tint</h2>
+        <div class="tint-option">
+            <img src="https://via.placeholder.com/150x100?text=20%+Tint" alt="20% Tint">
+            <p>20% Tint</p>
+        </div>
+        <div class="tint-option">
+            <img src="https://via.placeholder.com/150x100?text=35%+Tint" alt="35% Tint">
+            <p>35% Tint</p>
+        </div>
+        <div class="tint-option">
+            <img src="https://via.placeholder.com/150x100?text=50%+Tint" alt="50% Tint">
+            <p>50% Tint</p>
+        </div>
     </section>
 
     <!-- Gallery Section -->
