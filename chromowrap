@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chromowrap | Premium Car Wrapping & Detailing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Chromowrap</h1>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#shop">Shop</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#faqs">FAQs</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Slider -->
+    <section class="hero-slider">
+        <div class="slide active" style="background-image: url('images/wrap1.jpg');"></div>
+        <div class="slide" style="background-image: url('images/wrap2.jpg');"></div>
+        <div class="slide" style="background-image: url('images/wrap3.jpg');"></div>
+        <div class="slider-controls">
+            <span class="prev">&#10094;</span>
+            <span class="next">&#10095;</span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-list">
+            <div class="service">
+                <h3>Car Wrapping</h3>
+                <p>High-quality vinyl wraps in various colors and finishes.</p>
+            </div>
+            <div class="service">
+                <h3>Dechroming</h3>
+                <p>Transform and enhance vehicle appearance by removing chrome.</p>
+            </div>
+            <div class="service">
+                <h3>Exterior Detailing</h3>
+                <p>Bring out the shine with our premium detailing services.</p>
+            </div>
+            <div class="service">
+                <h3>Window Tinting</h3>
+                <p>Top-grade window tints to protect and enhance privacy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section with Color Options -->
+    <section id="shop">
+        <h2>Shop Wrap Options</h2>
+        <div class="wrap-options">
+            <div class="wrap-item">
+                <img src="images/wrap-option1.jpg" alt="Gloss Black Wrap">
+                <h4>Gloss Black</h4>
+                <p>$500</p>
+            </div>
+            <div class="wrap-item">
+                <img src="images/wrap-option2.jpg" alt="Matte Red Wrap">
+                <h4>Matte Red</h4>
+                <p>$600</p>
+            </div>
+            <!-- More wrap items -->
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+            <img src="images/gallery1.jpg" alt="Completed Wrap 1">
+            <img src="images/gallery2.jpg" alt="Completed Wrap 2">
+            <!-- More images -->
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>How long does a wrap last?</h4>
+            <p>Our wraps typically last 5-7 years with proper care.</p>
+        </div>
+        <!-- More FAQs -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Phone: (999) 999-9999</p>
+        <p>Email: info@chromowrap.com</p>
+        <p>Address: XXX Main St, Anytown, USA</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+header h1 {
+    font-size: 2.5em;
+    color: #c0c0c0;
+}
+header nav a {
+    color: #c0c0c0;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+/* Hero Slider */
+.hero-slider {
+    position: relative;
+    height: 60vh;
+}
+.slide {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: none;
+}
+.slide.active {
+    display: block;
+}
+.slider-controls span {
+    position: absolute;
+    top: 50%;
+    font-size: 2em;
+    cursor: pointer;
+    color: #c0c0c0;
+}
+.slider-controls .prev { left: 10px; }
+.slider-controls .next { right: 10px; }
+
+/* Sections */
+section {
+    padding: 40px;
+    text-align: center;
+}
+.service-list, .wrap-options, .gallery-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.service, .wrap-item {
+    width: 200px;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+}
+// Slider Controls
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+document.querySelector('.next').addEventListener('click', () => {
+    changeSlide(1);
+});
+document.querySelector('.prev').addEventListener('click', () => {
+    changeSlide(-1);
+});
+
+function changeSlide(direction) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    slides[currentSlide].classList.add('active');
+}
