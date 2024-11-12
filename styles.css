@@ -28,15 +28,18 @@ header nav a {
 .hero-slider {
     position: relative;
     height: 60vh;
+    overflow: hidden;
 }
 .slide {
     background-size: cover;
     background-position: center;
     height: 100%;
     display: none;
+    transition: opacity 1s ease-in-out;
 }
 .slide.active {
     display: block;
+    opacity: 1;
 }
 .slider-controls span {
     position: absolute;
@@ -48,17 +51,18 @@ header nav a {
 .slider-controls .prev { left: 10px; }
 .slider-controls .next { right: 10px; }
 
-/* Sections */
-section {
+/* Services */
+#services {
     padding: 40px;
     text-align: center;
 }
-
-/* Services */
 .service-list {
     display: flex;
     gap: 20px;
     justify-content: center;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
 }
 .service {
     width: 200px;
@@ -73,6 +77,11 @@ section {
 }
 
 /* Shop Options */
+#shop-options {
+    padding: 40px;
+    text-align: center;
+    display: none;
+}
 .wrap-options {
     display: flex;
     gap: 20px;
@@ -91,7 +100,16 @@ section {
     border-radius: 5px;
 }
 
-/* Buttons */
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 button {
     background-color: #444;
     color: #fff;
