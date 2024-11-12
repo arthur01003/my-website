@@ -136,21 +136,3 @@ button:hover {
     height: auto;
     border-radius: 5px;
 }
-
-/* Sorting */
-.sort-buttons {
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-.sort-buttons button {
-    background-color: #444;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-.sort-buttons button:hover {
-    background-color: #666;
-}
